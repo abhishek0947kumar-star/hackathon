@@ -3200,3 +3200,197 @@ svg {
     padding-right: 12px;
   }
 }
+
+/* Ingestion Schedule */
+.ingestion-panel {
+  margin-top: 24px;
+  padding: 26px;
+}
+
+.ingestion-list {
+  margin-top: 20px;
+}
+
+.ingestion-row {
+  display: grid;
+  grid-template-columns: 110px minmax(150px, 1fr) 120px 100px;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee9df;
+}
+
+.ingestion-time strong,
+.ingestion-info strong,
+.ingestion-volume strong {
+  display: block;
+  color: #51443a;
+  font-size: 13px;
+}
+
+.ingestion-time small,
+.ingestion-info small,
+.ingestion-volume small {
+  display: block;
+  margin-top: 5px;
+  color: #989084;
+  font-size: 11px;
+}
+
+.ingestion-status {
+  text-align: center;
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ingestion-status.scheduled {
+  color: #65775b;
+  background: #edf1e8;
+}
+
+.ingestion-status.revised {
+  color: #98753e;
+  background: #f6efdf;
+}
+
+.quiet-period {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 15px;
+  background: #f5f3ec;
+  border-radius: 12px;
+}
+
+.quiet-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #9ba58b;
+}
+
+.quiet-period strong {
+  color: #51443a;
+  font-size: 13px;
+}
+
+.quiet-period p {
+  margin: 4px 0 0;
+  color: #898174;
+  font-size: 12px;
+}
+
+@media (max-width: 650px) {
+  .ingestion-panel {
+    padding: 18px;
+  }
+
+  .ingestion-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .ingestion-status {
+    justify-self: start;
+  }
+}
+ /* Ingestion Updates and Retry Tracking */
+.ingestion-updates-panel {
+  margin-top: 24px;
+  padding: 26px;
+}
+
+.update-list {
+  margin-top: 18px;
+}
+
+.update-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee9df;
+}
+
+.update-main strong {
+  display: block;
+  color: #51443a;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.update-main small {
+  display: block;
+  color: #989084;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.update-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.update-status {
+  padding: 7px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.update-revised {
+  background: #f6efdf;
+  color: #98753e;
+}
+
+.update-scheduled {
+  background: #edf1e8;
+  color: #65775b;
+}
+
+.retry-count {
+  color: #81786c;
+  font-size: 11px;
+}
+
+.retry-button {
+  border: 1px solid #ded7ca;
+  background: #fffdf8;
+  color: #51443a;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.retry-button:hover {
+  background: #f0ede5;
+}
+
+.demo-note {
+  margin-top: 16px;
+  color: #989084;
+  font-size: 11px;
+}
+
+@media (max-width: 650px) {
+  .ingestion-updates-panel {
+    padding: 18px;
+  }
+
+  .update-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .update-meta {
+    width: 100%;
+  }
+}
