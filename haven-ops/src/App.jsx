@@ -1,4 +1,4 @@
-import BackendStatus from './components/BackendStatus';
+import BackendStatus from './components/BackendStatus'
 import SettingsPage from './pages/Settings'
 import Analytics from './pages/Analytics'
 import Decisions from './pages/Decisions'
@@ -295,17 +295,13 @@ function MetricCard({ metric, index }) {
       <div className="metric-value">
         {metric.value}
 
-        {metric.unit && (
-          <span>{metric.unit}</span>
-        )}
+        {metric.unit && <span>{metric.unit}</span>}
       </div>
 
       <div className="metric-footer">
         <span
           className={`metric-change ${
-            metric.positive
-              ? 'change-good'
-              : 'change-neutral'
+            metric.positive ? 'change-good' : 'change-neutral'
           }`}
         >
           {metric.positive ? (
@@ -324,6 +320,7 @@ function MetricCard({ metric, index }) {
     </motion.div>
   )
 }
+
 // Ingestion Updates component
 function IngestionUpdates() {
   const [plans, setPlans] = useState([
@@ -367,15 +364,11 @@ function IngestionUpdates() {
     <section className="panel ingestion-updates-panel">
       <div className="panel-heading">
         <div>
-          <div className="section-kicker">
-            PLAN CHANGE MONITOR
-          </div>
-          <h2>Ingestion Updates & Retries</h2>
+          <div className="section-kicker">PLAN CHANGE MONITOR</div>
+          <h2>Ingestion Updates &amp; Retries</h2>
           <p>Track revised workload plans and retry activity</p>
         </div>
-        <span className="updated-label">
-          DEMO DATA
-        </span>
+        <span className="updated-label">DEMO DATA</span>
       </div>
 
       <div className="update-list">
@@ -383,12 +376,8 @@ function IngestionUpdates() {
           <div className="update-row" key={plan.id}>
             <div className="update-main">
               <strong>{plan.name}</strong>
-              <small>
-                Original: {plan.original}
-              </small>
-              <small>
-                Latest plan: {plan.revised}
-              </small>
+              <small>Original: {plan.original}</small>
+              <small>Latest plan: {plan.revised}</small>
             </div>
 
             <div className="update-meta">
@@ -424,6 +413,8 @@ function IngestionUpdates() {
     </section>
   )
 }
+
+// Cost Breakdown component
 function CostBreakdown() {
   const costs = [
     {
@@ -448,29 +439,25 @@ function CostBreakdown() {
     },
   ]
 
-  const total = costs.reduce(
-    (sum, item) => sum + item.amount,
-    0
-  )
+  const total = costs.reduce((sum, item) => sum + item.amount, 0)
 
   return (
     <section className="panel cost-breakdown-panel">
       <div className="panel-heading">
         <div>
-          <div className="section-kicker">
-            INFRASTRUCTURE EXPENDITURE
-          </div>
+          <div className="section-kicker">INFRASTRUCTURE EXPENDITURE</div>
           <h2>Updated Cost Breakdown</h2>
           <p>Illustrative operating cost categories</p>
         </div>
-        <span className="updated-label">
-          DEMO DATA
-        </span>
+        <span className="updated-label">DEMO DATA</span>
       </div>
 
       <div className="cost-total">
         <span>Illustrative total cost</span>
-        <strong>₹{total}<small> / sample period</small></strong>
+        <strong>
+          ₹{total}
+          <small> / sample period</small>
+        </strong>
       </div>
 
       <div className="cost-list">
@@ -481,9 +468,7 @@ function CostBreakdown() {
               <small>{item.detail}</small>
             </div>
 
-            <strong className="cost-amount">
-              ₹{item.amount}
-            </strong>
+            <strong className="cost-amount">₹{item.amount}</strong>
           </div>
         ))}
       </div>
@@ -493,14 +478,16 @@ function CostBreakdown() {
       </p>
     </section>
   )
-  // Main App component
+}
+
+// Main App component
 function App() {
   const [active, setActive] = useState('Overview')
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <div className="app-shell">
-      <BackendStatus/>
+      <BackendStatus />
 
       {/* Sidebar */}
       <Sidebar
@@ -511,11 +498,9 @@ function App() {
       />
 
       <main className="main-content">
-
         {/* Top navigation */}
         <header className="topbar">
           <div className="topbar-left">
-
             <button
               className="mobile-menu"
               onClick={() => setMenuOpen(true)}
@@ -556,10 +541,8 @@ function App() {
         ) : active === 'Settings' ? (
           <SettingsPage />
         ) : (
-
           /* Overview dashboard */
           <div className="dashboard-container">
-
             {/* Welcome section */}
             <section className="welcome-section">
               <div>
@@ -607,9 +590,7 @@ function App() {
                 <div>
                   <strong>All systems looking good</strong>
 
-                  <p>
-                    Your simulated campus service is operational.
-                  </p>
+                  <p>Your simulated campus service is operational.</p>
                 </div>
               </div>
 
@@ -623,9 +604,7 @@ function App() {
             <section className="section-block">
               <div className="section-heading">
                 <div>
-                  <div className="section-kicker">
-                    AT A GLANCE
-                  </div>
+                  <div className="section-kicker">AT A GLANCE</div>
 
                   <h2>Infrastructure overview</h2>
                 </div>
@@ -648,7 +627,6 @@ function App() {
 
             {/* Analytics section */}
             <section className="analytics-grid">
-
               {/* Traffic chart */}
               <div className="panel traffic-panel">
                 <div className="panel-heading">
@@ -659,9 +637,7 @@ function App() {
 
                     <h2>Traffic overview</h2>
 
-                    <p>
-                      Incoming requests across the campus API
-                    </p>
+                    <p>Incoming requests across the campus API</p>
                   </div>
 
                   <button className="period-button">
@@ -681,10 +657,7 @@ function App() {
                 </div>
 
                 <div className="chart-area">
-                  <ResponsiveContainer
-                    width="100%"
-                    height="100%"
-                  >
+                  <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={trafficData}>
                       <defs>
                         <linearGradient
@@ -724,10 +697,7 @@ function App() {
                         dy={10}
                       />
 
-                      <YAxis
-                        hide
-                        domain={[0, 4000]}
-                      />
+                      <YAxis hide domain={[0, 4000]} />
 
                       <Tooltip
                         contentStyle={{
@@ -819,99 +789,99 @@ function App() {
             </section>
 
             {/* Ingestion Schedule */}
-<section className="panel ingestion-panel">
-  <div className="panel-heading">
-    <div>
-      <div className="section-kicker">
-        WORKLOAD PLANNING
-      </div>
-      <h2>Ingestion Schedule</h2>
-      <p>Upcoming scheduled workload activity</p>
-    </div>
+            <section className="panel ingestion-panel">
+              <div className="panel-heading">
+                <div>
+                  <div className="section-kicker">
+                    WORKLOAD PLANNING
+                  </div>
+                  <h2>Ingestion Schedule</h2>
+                  <p>Upcoming scheduled workload activity</p>
+                </div>
 
-    <span className="updated-label">
-      Illustrative sample data
-    </span>
-  </div>
+                <span className="updated-label">
+                  Illustrative sample data
+                </span>
+              </div>
 
-  <div className="ingestion-list">
-    <div className="ingestion-row">
-      <div className="ingestion-time">
-        <strong>09:30 AM</strong>
-        <small>Today</small>
-      </div>
-      <div className="ingestion-info">
-        <strong>Morning Data Sync</strong>
-        <small>Scheduled campus data ingestion</small>
-      </div>
-      <div className="ingestion-volume">
-        <strong>1,200</strong>
-        <small>Sample records</small>
-      </div>
-      <span className="ingestion-status scheduled">
-        Scheduled
-      </span>
-    </div>
+              <div className="ingestion-list">
+                <div className="ingestion-row">
+                  <div className="ingestion-time">
+                    <strong>09:30 AM</strong>
+                    <small>Today</small>
+                  </div>
+                  <div className="ingestion-info">
+                    <strong>Morning Data Sync</strong>
+                    <small>Scheduled campus data ingestion</small>
+                  </div>
+                  <div className="ingestion-volume">
+                    <strong>1,200</strong>
+                    <small>Sample records</small>
+                  </div>
+                  <span className="ingestion-status scheduled">
+                    Scheduled
+                  </span>
+                </div>
 
-    <div className="ingestion-row">
-      <div className="ingestion-time">
-        <strong>12:00 PM</strong>
-        <small>Today</small>
-      </div>
-      <div className="ingestion-info">
-        <strong>Student Activity Batch</strong>
-        <small>Scheduled campus data ingestion</small>
-      </div>
-      <div className="ingestion-volume">
-        <strong>3,500</strong>
-        <small>Sample records</small>
-      </div>
-      <span className="ingestion-status revised">
-        Revised
-      </span>
-    </div>
+                <div className="ingestion-row">
+                  <div className="ingestion-time">
+                    <strong>12:00 PM</strong>
+                    <small>Today</small>
+                  </div>
+                  <div className="ingestion-info">
+                    <strong>Student Activity Batch</strong>
+                    <small>Scheduled campus data ingestion</small>
+                  </div>
+                  <div className="ingestion-volume">
+                    <strong>3,500</strong>
+                    <small>Sample records</small>
+                  </div>
+                  <span className="ingestion-status revised">
+                    Revised
+                  </span>
+                </div>
 
-    <div className="ingestion-row">
-      <div className="ingestion-time">
-        <strong>03:30 PM</strong>
-        <small>Today</small>
-      </div>
-      <div className="ingestion-info">
-        <strong>Evening Analytics Batch</strong>
-        <small>Scheduled campus data ingestion</small>
-      </div>
-      <div className="ingestion-volume">
-        <strong>800</strong>
-        <small>Sample records</small>
-      </div>
-      <span className="ingestion-status scheduled">
-        Scheduled
-      </span>
-    </div>
-  </div>
+                <div className="ingestion-row">
+                  <div className="ingestion-time">
+                    <strong>03:30 PM</strong>
+                    <small>Today</small>
+                  </div>
+                  <div className="ingestion-info">
+                    <strong>Evening Analytics Batch</strong>
+                    <small>Scheduled campus data ingestion</small>
+                  </div>
+                  <div className="ingestion-volume">
+                    <strong>800</strong>
+                    <small>Sample records</small>
+                  </div>
+                  <span className="ingestion-status scheduled">
+                    Scheduled
+                  </span>
+                </div>
+              </div>
 
-  <div className="quiet-period">
-    <span className="quiet-dot" />
-    <div>
-      <strong>Quiet-period monitoring</strong>
-      <p>Watch for lower workload periods before adjusting capacity.</p>
-    </div>
-  </div>
-</section>
+              <div className="quiet-period">
+                <span className="quiet-dot" />
+                <div>
+                  <strong>Quiet-period monitoring</strong>
+                  <p>
+                    Watch for lower workload periods before adjusting
+                    capacity.
+                  </p>
+                </div>
+              </div>
+            </section>
 
-<IngestionUpdates />
-<CostBreakdown/> 
+            <IngestionUpdates />
+            <CostBreakdown />
 
             {/* Server and activity section */}
             <section className="bottom-grid">
-
               {/* Server health */}
               <div className="panel server-panel">
                 <div className="panel-heading">
                   <div>
-                    <div className="section-kicker">
-                      COMPUTE NODES
-                    </div>
+                    <div className="section-kicker">COMPUTE NODES</div>
 
                     <h2>Server health</h2>
                   </div>
@@ -927,10 +897,7 @@ function App() {
 
                 <div className="server-list">
                   {servers.map((server) => (
-                    <div
-                      className="server-row"
-                      key={server.name}
-                    >
+                    <div className="server-row" key={server.name}>
                       <div className="server-symbol">
                         <Server size={18} />
                       </div>
@@ -944,9 +911,7 @@ function App() {
                         <div className="load-track">
                           <div
                             className={`load-fill ${
-                              server.cpu > 80
-                                ? 'load-warning'
-                                : ''
+                              server.cpu > 80 ? 'load-warning' : ''
                             }`}
                             style={{
                               width: `${server.cpu}%`,
@@ -959,9 +924,7 @@ function App() {
 
                       <span
                         className={`server-status ${
-                          server.status === 'Warning'
-                            ? 'warning'
-                            : ''
+                          server.status === 'Warning' ? 'warning' : ''
                         }`}
                       >
                         {server.status}
@@ -1016,18 +979,14 @@ function App() {
 
             {/* Footer */}
             <footer className="footer">
-              <span>©️ 2026 HAVEN OPS</span>
+              <span>© 2026 HAVEN OPS</span>
 
-              <span>
-                DESIGNED FOR INTELLIGENT INFRASTRUCTURE
-              </span>
+              <span>DESIGNED FOR INTELLIGENT INFRASTRUCTURE</span>
 
               <span>BUILT WITH CARE ✳</span>
             </footer>
-
           </div>
         )}
-
       </main>
     </div>
   )
